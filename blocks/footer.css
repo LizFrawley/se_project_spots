@@ -1,9 +1,4 @@
-footer {
-  margin: 0;
-  padding: 0;
-}
-
-.footer__copyright {
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
