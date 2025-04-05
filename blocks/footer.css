@@ -1,0 +1,13 @@
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+.footer__copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 60px 0;
+  color: rgba(33, 33, 33, 0.7);
+}
