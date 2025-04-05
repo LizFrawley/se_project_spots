@@ -12,4 +12,4 @@
 
 This webpage has been deployed to GitHub Pages. 
 
--Deployment Link: 
+-Deployment Link: https://lizfrawley.github.io/se_project_spots/
