@@ -13,3 +13,7 @@
 This webpage has been deployed to GitHub Pages. 
 
 -Deployment Link: https://lizfrawley.github.io/se_project_spots/
+
+## Screen Recording
+
+-Loom video: https://www.loom.com/share/17d3915a55154e36bf03f9acac1176bd?sid=18430532-4278-42d0-8cc9-fcd45a0f6d85
