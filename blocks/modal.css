@@ -40,7 +40,7 @@
   opacity: 0.4;
 }
 
-.modal__close-button:hover {
+.modal__close-btn:hover {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
