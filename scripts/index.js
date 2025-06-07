@@ -44,10 +44,21 @@ const newPostCaptionEl = newPostModal.querySelector("#card-caption-input");
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
-const cardTemplate = document.querySelector("#card-template");
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+const cardsList = document.querySelector(".cards__list");
 
 function getCardElement(data) {
-  console.log(data);
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
+
+  cardTitleEl.textContent = data.name;
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+
+  return cardElement;
 }
 
 function openModal(modal) {
@@ -87,13 +98,20 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  console.log(newPostImageEl.value);
-  console.log(newPostCaptionEl.value);
+
+  const inputValues = {
+    name: newPostCaptionEl.value,
+    link: newPostImageEl.value,
+  };
+  const cardElement = getCardElement();
+  cardsList.prepend(cardElement);
+
   closeModal(newPostModal);
 }
 
 newPostModal.addEventListener("submit", handleNewPostSubmit);
 
 initialCards.forEach(function (item) {
-  getCardElement(item);
+  const cardElement = getCardElement(item);
+  cardsList.append(cardElement);
 });
