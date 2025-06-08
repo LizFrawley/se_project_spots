@@ -121,6 +121,7 @@ function handleNewPostSubmit(evt) {
 }
 
 newPostModal.addEventListener("submit", handleNewPostSubmit);
+
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
