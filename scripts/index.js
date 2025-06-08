@@ -46,6 +46,11 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostImageEl = newPostModal.querySelector("#card-image-input");
 const newPostCaptionEl = newPostModal.querySelector("#card-caption-input");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
+const previewImageEl = previewModal.querySelector(".modal__image");
+const previewCaptionEl = previewModal.querySelector(".modal__caption");
+
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const cardTemplate = document
