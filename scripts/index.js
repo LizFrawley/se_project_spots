@@ -68,14 +68,20 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
 
   const cardLikeBtnEl = cardElement.querySelector(".card__like-button");
-  cardLikeBtnEl.addEventListener("click", () => {
+  cardLikeBtnEl.addEventListener("click", function () {
     cardLikeBtnEl.classList.toggle("card__like-button_active");
   });
 
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
-  cardDeleteBtnEl.addEventListener("click", () => {
+  cardDeleteBtnEl.addEventListener("click", function () {
     cardElement.remove();
-    cardElement = null;
+  });
+
+  cardImageEl.addEventListener("click", function () {
+    previewImageEl.src = data.link;
+    previewImageEl.alt = data.name;
+    previewCaptionEl.textContent = data.name;
+    openModal(previewModal);
   });
 
   return cardElement;
@@ -107,6 +113,10 @@ newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
+previewModalCloseBtn.addEventListener("click", function () {
+  closeModal(previewModal);
+});
+
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
@@ -123,7 +133,7 @@ function handleNewPostSubmit(evt) {
     name: newPostCaptionEl.value,
     link: newPostImageEl.value,
   };
-  const cardElement = getCardElement();
+  const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
   closeModal(newPostModal);
