@@ -11,7 +11,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 0 10px;
+}
+
+.modal_type_preview {
+  padding: 0 16px;
 }
 
 .modal_is-opened {
@@ -36,9 +40,7 @@
   right: 30px;
   width: 40px;
   height: 40px;
-  background-image: url(../images/close.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url(../images/close.svg) no-repeat cover;
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -46,8 +48,19 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.modal__close-btn_type_preview {
+  background-image: url(../images/preview-close.svg);
+  top: 0;
+  right: -52.5px;
+  opacity: 1;
+}
+
 .modal__close-btn:hover {
   opacity: 1;
+}
+
+.modal__close-btn_type_preview:hover {
+  opacity: 0.4;
 }
 
 .modal__title {
@@ -114,7 +127,31 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width: 627px) {
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+.modal__image-container {
+  position: relative;
+}
+
+.modal__caption {
+  color: white;
+  background: #212121 no-repeat;
+  border-radius: 8px;
+  padding: 4px 8px 4px 8px;
+  max-width: 160px;
+  width: 100%;
+  margin: 0;
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 459px) {
   .modal__title {
     font-size: 20px;
     margin: 0 0 24px;
@@ -132,5 +169,16 @@
   .modal__input {
     font-size: 16px;
     line-height: 100%;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .modal__close-btn_type_preview {
+    top: -48px;
+    right: 0;
+  }
+
+  .modal__image {
+    max-width: unset;
   }
 }
