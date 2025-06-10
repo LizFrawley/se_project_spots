@@ -7,6 +7,7 @@
 -HTML
 -CSS
 -Responsive Design
+-JavaScript
 
 ## Deployment
 
