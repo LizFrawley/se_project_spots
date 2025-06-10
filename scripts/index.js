@@ -136,6 +136,10 @@ function handleNewPostSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
+  document.querySelector("#new-post-modal .modal__form").reset();
+  newPostImageEl.value = "";
+  newPostCaptionEl.value = "";
+
   closeModal(newPostModal);
 }
 
