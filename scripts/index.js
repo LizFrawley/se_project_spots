@@ -32,6 +32,9 @@ const initialCards = [
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
+const editProfileSubmitBtn = editProfileModal.querySelector(
+  ".modal__submit-button"
+);
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input"
@@ -43,6 +46,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 const newPostBtn = document.querySelector(".profile__new-post-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
+const newPostSubmitBtn = newPostModal.querySelector(".modal__submit-button");
 const newPostImageEl = newPostModal.querySelector("#card-image-input");
 const newPostCaptionEl = newPostModal.querySelector("#card-caption-input");
 
@@ -98,6 +102,10 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  resetValidation(editProfileForm, [
+    editProfileNameInput,
+    editProfileDescriptionInput,
+  ]);
   openModal(editProfileModal);
 });
 
@@ -121,6 +129,7 @@ function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
+  disableButton(editProfileSubmitBtn);
   closeModal(editProfileModal);
 }
 
@@ -128,16 +137,14 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-
   const inputValues = {
     name: newPostCaptionEl.value,
     link: newPostImageEl.value,
   };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-
   evt.target.reset();
-
+  disableButton(newPostSubmitBtn);
   closeModal(newPostModal);
 }
 
