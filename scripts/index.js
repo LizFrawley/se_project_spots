@@ -73,7 +73,7 @@ function getCardElement(data) {
 
   const cardLikeBtnEl = cardElement.querySelector(".card__like-button");
   cardLikeBtnEl.addEventListener("click", function () {
-    cardLikeBtnEl.classList.toggle("card__like-button_active");
+    cardLikeBtnEl.classList.toggle("card__like-button--active");
   });
 
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
@@ -91,22 +91,23 @@ function getCardElement(data) {
   return cardElement;
 }
 
-function openModal(modal) {
-  modal.classList.add("modal_is-opened");
-  document.addEventListener("keydown", function (evt) {
-    if (evt.key === "Escape") {
-      closeModal(modal);
+function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal--is-opened");
+    if (openedModal) {
+      closeModal(openedModal);
     }
-  });
+  }
+}
+
+function openModal(modal) {
+  modal.classList.add("modal--is-opened");
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal_is-opened");
-  document.removeEventListener("keydown", function (evt) {
-    if (evt.key === "Escape") {
-      closeModal(modal);
-    }
-  });
+  modal.classList.remove("modal--is-opened");
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 
 editProfileBtn.addEventListener("click", function () {
@@ -115,6 +116,11 @@ editProfileBtn.addEventListener("click", function () {
   window.resetValidation(
     editProfileForm,
     [editProfileNameInput, editProfileDescriptionInput],
+    window.settings
+  );
+  window.toggleButtonState(
+    [editProfileNameInput, editProfileDescriptionInput],
+    editProfileSubmitBtn,
     window.settings
   );
   openModal(editProfileModal);

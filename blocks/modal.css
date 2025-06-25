@@ -14,11 +14,11 @@
   padding: 0 10px;
 }
 
-.modal_type_preview {
+.modal--type_preview {
   padding: 0 16px;
 }
 
-.modal_is-opened {
+.modal--is-opened {
   visibility: visible;
   opacity: 1;
   transition-delay: 0s;
@@ -49,7 +49,7 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.modal__close-btn_type_preview {
+.modal__close-btn--type_preview {
   background-image: url(../images/preview-close.svg);
   background-color: transparent;
   top: 0;

@@ -33,7 +33,7 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonEl, config) => {
+window.toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
     window.disableButton(buttonEl, config);
   } else {
@@ -61,12 +61,12 @@ const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonEl = formEl.querySelector(config.submitButtonSelector);
 
-  toggleButtonState(inputList, buttonEl, config);
+  window.toggleButtonState(inputList, buttonEl, config);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formEl, inputElement, config);
-      toggleButtonState(inputList, buttonEl, config);
+      window.toggleButtonState(inputList, buttonEl, config);
     });
   });
 };
