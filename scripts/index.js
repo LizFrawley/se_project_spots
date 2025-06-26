@@ -116,12 +116,12 @@ editProfileBtn.addEventListener("click", function () {
   window.resetValidation(
     editProfileForm,
     [editProfileNameInput, editProfileDescriptionInput],
-    window.settings
+    settings
   );
-  window.toggleButtonState(
+  toggleButtonState(
     [editProfileNameInput, editProfileDescriptionInput],
     editProfileSubmitBtn,
-    window.settings
+    settings
   );
   openModal(editProfileModal);
 });
@@ -146,7 +146,6 @@ function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-  window.disableButton(editProfileSubmitBtn, window.settings);
   closeModal(editProfileModal);
 }
 
@@ -161,7 +160,7 @@ function handleNewPostSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  window.disableButton(newPostSubmitBtn, window.settings);
+  window.disableButton(newPostSubmitBtn, settings);
   closeModal(newPostModal);
 }
 
@@ -172,7 +171,7 @@ initialCards.forEach(function (item) {
   cardsList.append(cardElement);
 });
 
-const modals = document.querySelectorAll(".modal"); // Select all modals
+const modals = document.querySelectorAll(".modal");
 
 modals.forEach((modal) => {
   modal.addEventListener("click", (evt) => {

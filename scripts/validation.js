@@ -1,4 +1,4 @@
-window.settings = {
+const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-button",
@@ -33,7 +33,7 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-window.toggleButtonState = (inputList, buttonEl, config) => {
+const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
     window.disableButton(buttonEl, config);
   } else {
@@ -61,12 +61,12 @@ const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonEl = formEl.querySelector(config.submitButtonSelector);
 
-  window.toggleButtonState(inputList, buttonEl, config);
+  toggleButtonState(inputList, buttonEl, config);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formEl, inputElement, config);
-      window.toggleButtonState(inputList, buttonEl, config);
+      toggleButtonState(inputList, buttonEl, config);
     });
   });
 };
@@ -78,4 +78,4 @@ const enableValidation = (config) => {
   });
 };
 
-enableValidation(window.settings);
+enableValidation(settings);
