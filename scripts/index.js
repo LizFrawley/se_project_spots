@@ -113,7 +113,7 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  window.resetValidation(
+  resetValidation(
     editProfileForm,
     [editProfileNameInput, editProfileDescriptionInput],
     settings
@@ -160,7 +160,7 @@ function handleNewPostSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  window.disableButton(newPostSubmitBtn, settings);
+  disableButton(newPostSubmitBtn, settings);
   closeModal(newPostModal);
 }
 

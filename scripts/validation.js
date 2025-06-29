@@ -41,18 +41,18 @@ const toggleButtonState = (inputList, buttonEl, config) => {
   }
 };
 
-window.disableButton = (buttonEl, config) => {
+const disableButton = (buttonEl, config) => {
   buttonEl.disabled = true;
   buttonEl.classList.add(config.inactiveButtonClass);
 };
 
-window.resetValidation = (formEl, inputList, config) => {
+const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formEl, input, config);
   });
 };
 
-window.enableButton = (buttonEl, config) => {
+const enableButton = (buttonEl, config) => {
   buttonEl.disabled = false;
   buttonEl.classList.remove(config.inactiveButtonClass);
 };
